@@ -9,9 +9,13 @@
   color: #f1f4f6;
 }
 
+.admin-intro,
+.admin-table th {
+  color: #a9bbc4;
+}
+
 .admin-intro {
   margin: 8px 0 22px;
-  color: #a9bbc4;
 }
 
 .admin-card {
@@ -24,7 +28,6 @@
 
 .admin-card h2 {
   margin-bottom: 16px;
-  font-size: 1.2rem;
 }
 
 .admin-message {
@@ -54,7 +57,8 @@
   color: #e6edf3;
 }
 
-.admin-form label span {
+.admin-form label span,
+.admin-self {
   color: #8fa3b0;
 }
 
@@ -80,10 +84,6 @@
 .admin-table td {
   padding: 12px 10px;
   border-bottom: 1px solid #2f4350;
-}
-
-.admin-table th {
-  color: #a9bbc4;
 }
 
 .admin-actions {
@@ -122,14 +122,4 @@
 .admin-delete:hover {
   color: #0d141a;
   background: #ff8a80;
-}
-
-.admin-self {
-  color: #8fa3b0;
-}
-
-@media (max-width: 760px) {
-  .admin-page {
-    width: 92%;
-  }
 }

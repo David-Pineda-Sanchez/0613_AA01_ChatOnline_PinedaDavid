@@ -12,28 +12,9 @@ Autores: David Pineda y Raül Castro.
 ## Instalación
 
 1. Copiar la carpeta del proyecto en el directorio `www` del servidor.
-2. Importar el archivo `db_chat.sql` desde phpMyAdmin. Crea desde cero la base `db_chat_validación` y sus tablas, sin modificar `db_chat`.
+2. Importar el archivo `db_chat.sql` desde phpMyAdmin. Crea la base de datos `db_chat` y sus tablas.
 3. Revisar las credenciales de la base de datos en `includes/config.php` (`$db_host`, `$db_user`, `$db_pass`, `$db_name`).
-4. Crear una cuenta desde el registro y asignarle el rol de administrador con la consulta indicada en «Administración».
-5. Abrir `index.php` en el navegador. Redirige al login o a la página principal según haya sesión iniciada.
-
-## Administración
-
-- Los roles se guardan en `tbl_roles` y se asignan a las cuentas mediante `tbl_usuario_roles`; así puede haber más de un administrador.
-- Para dar de alta a un administrador, registrar primero su cuenta y ejecutar en phpMyAdmin la siguiente consulta, sustituyendo `nombre_admin` por su username:
-
-```sql
-INSERT INTO tbl_usuario_roles (id_usuario, id_rol)
-SELECT u.id_usuario, r.id_rol
-FROM tbl_usuario u
-JOIN tbl_roles r ON r.nombre = 'administrador'
-WHERE u.username = 'nombre_admin';
-```
-
-- Una vez iniciada la sesión con esa cuenta, aparece el acceso «Administrar usuarios» en la página principal. Desde allí se pueden editar los datos y contraseña o eliminar una cuenta.
-- Al eliminar un usuario se borran sus solicitudes de amistad y todos los mensajes enviados o recibidos. También se quitan las imágenes que esos mensajes guardaban en `uploads/`.
-- No se usa `ON DELETE CASCADE`: el proceso PDO elimina explícitamente las asignaciones de rol, solicitudes y mensajes, en una transacción. Las claves foráneas impiden borrar una cuenta si queda alguna relación dependiente.
-- Un administrador no puede eliminar su propia cuenta desde esta sección. Para dar de alta a otro administrador, repetir la consulta con su username.
+4. Abrir `index.php` en el navegador. Redirige al login o a la página principal según haya sesión iniciada.
 
 ## Funcionalidades
 
@@ -46,16 +27,15 @@ WHERE u.username = 'nombre_admin';
 
 ## Estructura de carpetas
 
-- `view/` páginas que ve el usuario, incluida la sección de administración.
-- `procesos/` lógica de registro, autenticación, solicitudes, mensajes y administración.
-- `includes/` conexión a la base de datos, configuración, sesión y permisos.
-- `css/` hojas de estilo, incluida la de administración.
-- `db_chat.sql` crea la base de datos `db_chat_validación` con las tablas de la aplicación y los roles.
+- `view/` páginas que ve el usuario (login, registro, principal, buscar, solicitudes, amigos y chat).
+- `procesos/` lógica en PHP sin HTML (registro, autenticación, logout, solicitudes y envío de mensajes).
+- `includes/` conexión a la base de datos, configuración y comprobación de sesión.
+- `css/` hojas de estilo.
+- `db_chat.sql` script para crear la base de datos.
 
 ## Base de datos
 
 - `tbl_usuario` guarda el username (único), el nombre real y la contraseña cifrada.
-- `tbl_roles` define los roles `usuario` y `administrador`; `tbl_usuario_roles` permite asignar uno o varios roles a cada cuenta.
 - `tbl_soli_amistad` guarda quién envía cada solicitud, a quién y su estado (`pendiente`, `aceptada` o `rechazada`). La combinación emisor y receptor es única, así que no se duplican solicitudes.
 - `tbl_chats` guarda los mensajes con emisor, receptor, texto, tipo de contenido, ruta de archivo y fecha de envío.
 - Las tablas de solicitudes y mensajes tienen claves foráneas hacia `tbl_usuario`.
@@ -67,7 +47,6 @@ WHERE u.username = 'nombre_admin';
 - Los datos se validan en PHP en todos los formularios.
 - Los datos se escapan con `htmlspecialchars` antes de mostrarse.
 - Las páginas internas comprueban la sesión con `includes/sesion.php` y redirigen al login si no hay usuario.
-- La sección y las acciones de administración comprueban el rol en la base de datos; no basta con conocer la dirección de la página.
 - El chat solo se abre entre usuarios con una amistad aceptada, y el envío de mensajes lo comprueba también en el servidor.
 
 ## Decisiones de diseño
