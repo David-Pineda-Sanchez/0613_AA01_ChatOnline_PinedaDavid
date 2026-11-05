@@ -1,0 +1,77 @@
+/* Centra la sección y limita el ancho de lectura. */
+.container-solicitudes {
+  padding: 32px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Da visibilidad a la confirmación de una acción. */
+.mensaje-solicitud {
+  margin-top: 15px;
+  color: #2dd4bf;
+  font-size: 0.95rem;
+}
+
+/* Separa la lista de solicitudes del encabezado. */
+.lista-solicitudes-container {
+  margin-top: 20px;
+}
+
+/* Estilo discreto para indicar que no hay solicitudes pendientes. */
+.vacio {
+  color: #8fa3b0;
+}
+
+/* Quita las viñetas y el relleno por defecto de la lista. */
+.lista-solicitudes {
+  list-style: none;
+  padding: 0;
+}
+
+/* Presenta cada solicitud con el usuario y sus acciones en una fila. */
+.solicitud-item {
+  background: rgba(13, 20, 26, 0.9);
+  border: 1px solid #2f4350;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Alinea los botones de aceptar y rechazar. */
+.acciones {
+  display: flex;
+  gap: 10px;
+}
+
+/* Resalta la acción de aceptar y su estado al pasar el cursor. */
+.btn-aceptar {
+  background: #14b8a6;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-aceptar:hover {
+  background: #0f9488;
+}
+
+/* Diferencia la acción de rechazar mediante un tono de alerta. */
+.btn-rechazar {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-rechazar:hover {
+  background: #e05555;
+}

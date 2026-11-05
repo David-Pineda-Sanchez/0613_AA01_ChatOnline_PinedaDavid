@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales de la página color de texto */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #e6edf3;
+  min-height: 100vh;  /* Altura mínima */
+  background: #203a43;
+}
+
+/* Estilo de la barra superior */
+/* Organiza el logotipo y los enlaces de navegación en la parte superior */
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* El primer elemento al inicio y el último al final, distribuye el espacio entre los elementos medios*/
+  padding: 14px 28px; /* Espacio interior entre el texto y el contenedor */
+  background: #0d141a;
+  border-bottom: 1px solid #2dd4bf; /* Línea inferior */
+}
+
+/* Estilo del logo */
+/* Da al nombre de la aplicación su color y peso visual. */
+.brand {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2dd4bf;
+}
+
+/* Contenedor flexible para alinear elementos en fila con separación entre ellos */
+/* Mantiene los enlaces del encabezado alineados y separados. */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Color del texto para el saludo al usuario */
+/* Destaca el saludo sin competir con los botones de navegación. */
+.user-greeting {
+  color: #f1f4f6;
+}
+
+/* Estilo de botón secundario fantasma con borde */
+/* Presenta los enlaces del encabezado como botones con borde. */
+.ghost {
+  color: #2dd4bf;
+  border: 1px solid #2dd4bf;
+  padding: 6px 14px;
+  border-radius: 4px;
+}
+
+/* Invierte los colores al pasar el ratón por el boton */
+.ghost:hover {
+  background: #2dd4bf;
+  color: #0d141a;
+}
+
+/* Centra el contenido principal y limita su ancho en pantallas grandes. */
+.principal {
+  width: min(100% - 40px, 900px);
+  margin: 0 auto;
+  padding: 32px 0 64px;
+}
+
+/* Separa el saludo de la lista de conversaciones. */
+.bienvenida {
+  margin-bottom: 28px;
+}
+
+/* Ajusta el título de bienvenida para que sea fácil de leer. */
+.bienvenida h1 {
+  margin-bottom: 6px;
+  color: #f1f4f6;
+  font-size: 1.8rem;
+}
+
+/* Usa un tono secundario para los textos explicativos. */
+.sub {
+  color: #a9bbc4;
+  line-height: 1.6;
+}
+
+/* Limita el ancho de la sección de conversaciones. */
+.seccion-chats {
+  max-width: 700px;
+}
+
+/* Deja espacio entre el título de la sección y su contenido. */
+.encabezado-chats {
+  margin-bottom: 18px;
+}
+
+.encabezado-chats h2 {
+  color: #f1f4f6;
+  font-size: 1.4rem;
+}
+
+/* Quita las viñetas y separa las filas de chats. */
+.lista-chats {
+  list-style: none;
+}
+
+.lista-chats li {
+  margin-bottom: 12px;
+}
+
+/* Muestra el nombre y la fecha como una fila clicable. */
+.chat-reciente {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #2f4350;
+  border-radius: 8px;
+  background: #0d141a;
+  color: #e6edf3;
+  text-decoration: none;
+}
+
+.chat-reciente:hover,
+.chat-reciente:focus-visible {
+  border-color: #2dd4bf;
+  outline: none;
+}
+
+/* Ordena los datos de cada conversación y evita que desborden. */
+.datos-chat {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 6px;
+}
+
+.nombre-chat {
+  overflow: hidden;
+  color: #f1f4f6;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ultimo-mensaje {
+  overflow: hidden;
+  color: #a9bbc4;
+  font-size: 0.88rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.prefijo-mensaje {
+  color: #d0dde1;
+}
+
+/* Diferencia la fecha del nombre del amigo. */
+.fecha-chat {
+  flex: 0 0 auto;
+  color: #8fa3b0;
+  font-size: 0.78rem;
+}
+
+/* Mantiene el aviso vacío o de error con el mismo estilo de las filas. */
+.mensaje-estado {
+  padding: 16px;
+  border: 1px solid #2f4350;
+  border-radius: 8px;
+  background: #0d141a;
+}
+
+.estado-vacio h3 {
+  margin-bottom: 6px;
+  color: #f1f4f6;
+  font-size: 1rem;
+}
+
+.estado-vacio p {
+  color: #a9bbc4;
+}
+
+/* Usa un color de alerta cuando no se pudieron cargar los chats. */
+.error-chats {
+  color: #ffb4a9;
+}
+
+/* Reorganiza la navegación y el contenido para pantallas medianas. */
+@media (max-width: 760px) {
+  .bar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .principal {
+    width: min(100% - 28px, 900px);
+    padding-top: 34px;
+  }
+
+  .chat-reciente {
+    gap: 12px;
+  }
+}
+
+/* Oculta datos secundarios y ajusta los botones en móviles estrechos. */
+@media (max-width: 480px) {
+  .user-greeting {
+    width: 100%;
+  }
+
+  .ghost {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+
+  .fecha-chat {
+    display: none;
+  }
+}

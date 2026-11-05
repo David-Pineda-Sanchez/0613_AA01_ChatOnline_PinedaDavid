@@ -1,0 +1,108 @@
+.buscador {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.buscador h2 {
+  color: #2dd4bf;
+  margin-bottom: 20px;
+}
+
+/* Mantiene el campo y el botón de búsqueda en una misma fila */
+.buscador-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.buscador-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #2f4350;
+  border-radius: 4px;
+  background: #16222b;
+  color: #e6edf3;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.buscador-input:focus {
+  border-color: #2dd4bf;
+}
+
+/* Resalta la acción de buscar y su respuesta al pasar el cursor */
+.buscador-boton {
+  padding: 10px 20px;
+  background: #14b8a6;
+  color: #0d141a;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buscador-boton:hover {
+  background: #0f9488;
+}
+
+/* Cada usuario encontrado */
+.resultado {
+  background: #0d141a;
+  border: 1px solid #2f4350;
+  border-radius: 4px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resultado-boton {
+  padding: 8px 14px;
+  background: #14b8a6;
+  color: #0d141a;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.resultado-boton:hover {
+  background: #0f9488;
+}
+
+/* Atenúa las acciones que ya no están disponibles */
+.resultado-boton-off,
+.resultado-boton-off:hover {
+  background: #2f4350;
+  color: #8fa3b0;
+  cursor: default;
+}
+
+.resultado-username {
+  display: block;
+  color: #2dd4bf;
+  font-weight: bold;
+}
+
+.resultado-nombre {
+  display: block;
+  color: #8fa3b0;
+  font-size: 0.9rem;
+}
+
+/* Diferencia los avisos de error, éxito y búsqueda sin resultados */
+.mensaje-error {
+  color: #ff6b6b;
+  margin-bottom: 16px;
+}
+
+.mensaje-ok {
+  color: #2dd4bf;
+  margin-bottom: 16px;
+}
+
+.mensaje-vacio {
+  color: #8fa3b0;
+}

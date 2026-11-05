@@ -1,0 +1,151 @@
+/* Resetea los márgenes, rellenos y el cálculo de cajas */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo general de la página*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #e6edf3;
+  min-height: 100vh; /* Altura mínima */
+  background: #203a43;
+}
+
+/* Contenedor para centrar elementos vertical y horizontalmente ocupando toda la pantalla */
+.mid {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Estilo de la tarjeta principal, caja contenedora del formulario */
+.card {
+  background: #0d141a;
+  border: 1px solid #2dd4bf;
+  border-radius: 8px;
+  padding: 40px;
+  width: 100%;
+  max-width: 440px;
+}
+
+/* Añade separación inferior al logotipo dentro del formulario */
+.card .brand {
+  display: block;
+  margin-bottom: 24px;
+}
+
+/* Estilo de los títulos dentro de la tarjeta */
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+  color: #2dd4bf;
+}
+
+/* Estilo general para el logotipo o marca */
+.brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2dd4bf;
+  text-align: center;
+}
+
+/* Estilo para los subtítulos o textos descriptivos: color grisáceo y margen inferior */
+.sub {
+  color: #8fa3b0;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+/* Margen inferior para cada bloque de campo de formulario */
+.fld {
+  margin-bottom: 16px;
+}
+
+/* Estilo para las etiquetas de los campos se muestran en bloque con un pequeño espacio inferior */
+.fld label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+/* Estilos comunes para campos de texto, selectores y áreas de texto */
+.fld input,
+.fld select,
+.fld textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #2f4350;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  background: #16222b;
+  color: #e6edf3;
+  outline: none;
+  font-family: inherit;
+}
+
+/* Cambia el color del borde a turquesa cuando el usuario hace clic o enfoca el campo */
+.fld input:focus,
+.fld select:focus,
+.fld textarea:focus {
+  border-color: #2dd4bf;
+}
+
+/* Estilo para botones de acción principal ancho completo, fondo turquesa, texto oscuro y cursor de tipo enlace */
+.full {
+  width: 100%;
+  padding: 11px;
+  background: #14b8a6;
+  color: #0d141a;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 4px;
+  display: block;
+  text-align: center;
+}
+
+/* Oscurece ligeramente el fondo del botón al pasar el ratón por encima */
+.full:hover {
+  background: #0f9488;
+}
+
+/* Contenedor para el texto alternativo de cambiar entre login y registro */
+.swap {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: #8fa3b0;
+}
+
+/* Subraya el enlace dentro del texto de cambio */
+.swap a {
+  color: #2dd4bf;
+  text-decoration: underline;
+}
+
+/* Estilo para los mensajes de error, texto en rojo y margen inferior */
+.error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+/* Estilo para los mensajes de éxito, texto en turquesa y margen inferior */
+.exitoso {
+  color: #2dd4bf;
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .card {
+    padding: 28px 20px;
+  }
+}

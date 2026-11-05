@@ -1,0 +1,46 @@
+/* Centra el contenido de amigos y limita el ancho */
+.container-amigos {
+  padding: 32px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Quita las viñetas y separa la lista del título */
+.lista-amigos {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+/* Presenta cada amigo en una fila oscura con su acción a la derecha */
+.amigo-item {
+  background: rgba(13, 20, 26, 0.9);
+  border: 1px solid #2f4350;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Da al enlace de chat aspecto de botón de acción */
+.btn-chat {
+  background: #14b8a6;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Oscurece el botón al pasar el cursor */
+.btn-chat:hover {
+  background: #0f9488;
+}
+
+/* Mantiene discreto el texto cuando todavía no hay amigos */
+.vacio {
+  color: #8fa3b0;
+  margin-top: 20px;
+}
